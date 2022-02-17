@@ -35,10 +35,16 @@ ORDER BY countries.surface_area DESC;
 -- 6. What query would you run to get countries with only Constitutional Monarchy with a capital greater than 200 and a life expectancy greater than 75 years? (1)
 SELECT countries.name
 FROM countries
-WHERE countries.government_form = "Constitutional Monarchy" AND countries.life_expectancy > 75;
+WHERE countries.government_form = "Constitutional Monarchy" AND countries.life_expectancy > 75
+;
 
 
 -- 7. What query would you run to get all the cities of Argentina inside the Buenos Aires district and have the population greater than 500, 000? The query should return the Country Name, City Name, District and Population. (2)
+SELECT countries.name, cities.name, cities.district, cities.population
+FROM cities
+LEFT JOIN countries ON countries.code = cities.country_code
+WHERE cities.district = "Buenos Aires" AND cities.population > 500000
+ORDER BY cities.population DESC;
 
 -- 8. What query would you run to summarize the number of countries in each region? The query should display the name of the region and the number of countries. Also, the query should arrange the result by the number of countries in descending order. (2)
 
