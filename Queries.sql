@@ -13,6 +13,11 @@ GROUP BY cities.country_code
 ORDER BY COUNT(*) DESC;
 
 -- 3. What query would you run to get all the cities in Mexico with a population of greater than 500,000? Your query should arrange the result by population in descending order. (1)
+SELECT cities.name, cities.population
+FROM cities
+LEFT JOIN countries ON cities.country_code = countries.code
+WHERE countries.name = "Mexico" AND cities.population > 500000
+ORDER BY cities.population DESC;
 
 -- 4. What query would you run to get all languages in each country with a percentage greater than 89%? Your query should arrange the result by percentage in descending order. (1)
 
