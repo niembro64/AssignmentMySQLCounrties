@@ -12,12 +12,17 @@ LEFT JOIN countries ON  countries.code = cities.country_code
 GROUP BY cities.country_code
 ORDER BY COUNT(*) DESC;
 
+SELECT *
+FROM cities 
+LEFT JOIN countries ON  countries.code = cities.country_code
+ORDER BY countries.population DESC;
+
 -- 3. What query would you run to get all the cities in Mexico with a population of greater than 500,000? Your query should arrange the result by population in descending order. (1)
 SELECT cities.name, cities.population
 FROM cities
 LEFT JOIN countries ON cities.country_code = countries.code
 WHERE countries.name = "Mexico" AND cities.population > 500000
-ORDER BY cities.population DESC;
+ORDER BY cities.name DESC;
 
 -- 4. What query would you run to get all languages in each country with a percentage greater than 89%? Your query should arrange the result by percentage in descending order. (1)
 SELECT country.name, languages.language, languages.percentage
@@ -47,5 +52,10 @@ WHERE cities.district = "Buenos Aires" AND cities.population > 500000
 ORDER BY cities.population DESC;
 
 -- 8. What query would you run to summarize the number of countries in each region? The query should display the name of the region and the number of countries. Also, the query should arrange the result by the number of countries in descending order. (2)
+SELECT countries.region, COUNT(*)
+FROM countries
+GROUP BY countries.region
+ORDER BY COUNT(*) DESC
+;
 
 -- Note: You may download this PDF file displaying the expected results from the quer
