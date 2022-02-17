@@ -1,5 +1,11 @@
 -- 1. What query would you run to get all the countries that speak Slovene? Your query should return the name of the country, language and language percentage. Your query should arrange the result by language percentage in descending order. (1)
 
+SELECT countries.name, languages.language, languages.percentage
+FROM countries
+INNER JOIN languages on languages.country_code = countries.code
+WHERE languages.language = "Slovene"
+ORDER BY languages.percentage DESC;
+
 -- 2. What query would you run to display the total number of cities for each country? Your query should return the name of the country and the total number of cities. Your query should arrange the result by the number of cities in descending order. (3)
 
 -- 3. What query would you run to get all the cities in Mexico with a population of greater than 500,000? Your query should arrange the result by population in descending order. (1)
