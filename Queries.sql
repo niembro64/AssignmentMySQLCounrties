@@ -33,6 +33,10 @@ WHERE countries.surface_area < 501 and countries.population > 100000
 ORDER BY countries.surface_area DESC;
 
 -- 6. What query would you run to get countries with only Constitutional Monarchy with a capital greater than 200 and a life expectancy greater than 75 years? (1)
+SELECT countries.name
+FROM countries
+WHERE countries.government_form = "Constitutional Monarchy" AND countries.life_expectancy > 75;
+
 
 -- 7. What query would you run to get all the cities of Argentina inside the Buenos Aires district and have the population greater than 500, 000? The query should return the Country Name, City Name, District and Population. (2)
 
