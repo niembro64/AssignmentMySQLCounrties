@@ -27,6 +27,10 @@ WHERE percentage > 89
 ORDER BY percentage DESC;
 
 -- 5. What query would you run to get all the countries with Surface Area below 501 and Population greater than 100,000? (2)
+SELECT countries.name, countries.surface_area, countries.population
+FROM countries
+WHERE countries.surface_area < 501 and countries.population > 100000
+ORDER BY countries.surface_area DESC;
 
 -- 6. What query would you run to get countries with only Constitutional Monarchy with a capital greater than 200 and a life expectancy greater than 75 years? (1)
 
